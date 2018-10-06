@@ -47,7 +47,7 @@ class UserController extends BaseController
 			$user = new User($mUser);
 			try {
 				$user->signUp($this->request->post());
-				$this->redirect('/');
+				$this->redirect('/Coursework/РНРMod3/phpblog');
 			} catch (\Exception $e) {
 				$errors = $e->getErrors();
 			}	

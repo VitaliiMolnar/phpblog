@@ -9,22 +9,22 @@ class UserModel extends BaseModel
 {
 	protected $schema = [
 		'id' => [
-			'primary' => true,
+			'primary' => true
 		],
 
 		'login' => [
 			'type' => 'string',
 			'length' => [3, 50],
 			'not_blank' => true,
-			'require' => true,
+			'require' => true
 		],
 
 		'password' => [
 			'type' => 'string',
 			'length' => [8, 50],
 			'not_blank' => true,
-			'require' => true,
-		]
+			'require' => true
+		],
 	];
 
 	public function __construct(DBDriver $db, Validator $validator)
@@ -41,14 +41,14 @@ class UserModel extends BaseModel
 			// throw new exception
 		}
 
-		$this->add([
+		return $this->add([
 			'login' => $this->validator->clean['login'],
 			'password' => $this->getHash($this->validator->clean['password'])
-		]);		
+		]);
 	}
 
 	public function getHash($password)
 	{
-		return md5($password . 'JJJfdkkgf654__5646');
+		return md5($password . 'JJJfdkkgfj0058__547383');
 	}
 }

@@ -1,4 +1,4 @@
-<? foreach ($posts as $post): ?>
+<?php foreach ($posts as $post): ?>
 	<div>
 		<h2>
 			<a href="post/<?=$post['id']?>"><?=$post['title']?></a>
@@ -7,4 +7,4 @@
 			<?=$post['preview']?>
 		</p>
 	</div>
-<? endforeach ?>
+<?php endforeach; ?>
