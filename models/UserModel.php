@@ -47,6 +47,12 @@ class UserModel extends BaseModel
 		]);
 	}
 
+	public function getByLogin($login)
+	{
+		$sql = "SELECT * FROM ($this->table) WHERE login = :login";
+		return $this->db->select( $sql, ['login' => $login], DBDriver::FETCH_ONE);
+	}
+
 	public function getHash($password)
 	{
 		return md5($password . 'JJJfdkkgfj0058__547383');

@@ -4,6 +4,7 @@ namespace controller;
 
 use core\User;
 use models\UserModel;
+use models\SessionModel;
 use core\DBConnector;
 use core\DBDriver;
 use core\Validator;
@@ -21,8 +22,13 @@ class UserController extends BaseController
 			new DBDriver(DBConnector::getConnect()),
 			new Validator()
 		);
+
+		$mSession = new SessionModel(
+			new DBDriver(DBConnector::getConnect()),
+			new Validator()
 		
-		$user = new User($mUser);
+		$user = new User($mUser, $mSession);
+		$user->signIn($this->request->post());
 		}
 
 		$this->content = $this->build(
